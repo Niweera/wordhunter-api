@@ -1,11 +1,23 @@
-# WordHunter
+# WordHunter-api v1.0
 > WordHunter lets you to find the words for the letters you have when you are playing Scrabble.
 
-The following is the basic architecture of the WordHunter application.
+The following is the basic architecture of the WordHunter application. (The web application will use the WordHunter-api to get the results according to the letters that the user has given.
+
 
 
 
 ![](wordhunter.png)
+
+### Example use case
+
+User wants to find words which can be created from `a, o, n, t`
+
+The WordHunter service will provide the following results.
+1. Nota - Plural of Notum
+(The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
+
+## Endpoints will be available soon
+> Still in the planning phase.
 
 ## Meta
 
@@ -13,7 +25,9 @@ Nipuna Weerasekara – [@Niweera](https://twitter.com/Niweera) – w.nipuna@gmai
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/Niweera/wordhunter-api](https://github.com/Niweera/wordhunter)
+[https://github.com/Niweera/wordhunter-api](https://github.com/Niweera/wordhunter-api)
+
+The front-end for this application is in [wordhunter](https://github.com/Niweera/wordhunter) repo.
 
 ## Contributing
 
