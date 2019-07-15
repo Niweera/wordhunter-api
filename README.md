@@ -14,6 +14,7 @@ User wants to find words which can be created from `a, o, n, t`
 
 The WordHunter service will provide the following results.
 1. Nota - Plural of Notum
+
 (The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
 
 ## Endpoints will be available soon
