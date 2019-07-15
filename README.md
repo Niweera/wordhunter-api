@@ -13,11 +13,11 @@ Nipuna Weerasekara – [@Niweera](https://twitter.com/Niweera) – w.nipuna@gmai
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/Niweera/wordhunter](https://github.com/Niweera/wordhunter)
+[https://github.com/Niweera/wordhunter-api](https://github.com/Niweera/wordhunter)
 
 ## Contributing
 
-1. Fork it (<https://github.com/Niweera/wordhunter/fork>)
+1. Fork it (<https://github.com/Niweera/wordhunter-api/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
