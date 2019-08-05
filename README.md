@@ -6,7 +6,7 @@ The following is the basic architecture of the WordHunter application. (The web 
 
 
 
-![](wh.png)
+![](w.png)
 
 ### Example use case
 
