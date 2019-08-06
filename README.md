@@ -13,12 +13,42 @@ The following is the basic architecture of the WordHunter application. (The web 
 User wants to find words which can be created from `a, o, n, t`
 
 The WordHunter service will provide the following results.
-1. Nota - Plural of Notum
+1. nato - North Atlantic Treaty Organization.
 
 (The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
 
 ## Endpoints will be available soon
-> Still in the planning phase.
+
+### WordHunter Main Endpoint
+
+Enter any combination of letters (No more than 7 letters at once) without the need of seperating them by a comma or a space.
+
+Eg. `https://wh.niweera.gq/asd`, will return an array of all the possible words and their definitions that can be created using all the given letters. Please remember the maximum number of letters that can be given is 7 letters.
+
+```json
+[
+  {
+    "word": "asd",
+    "definition": "short for autistic spectrum disorder"
+  },
+  {
+    "word": "sad",
+    "definition": "Feeling or showing sorrow; unhappy."
+  }
+]
+```
+
+### Paths
+
+| Location | Endpoint |
+| :-- | :-- |
+| Root path | `https://wh.niweera.gq/`|
+
+### HTTP request and query methods
+
+| Method | Endpoint | Query | Description | Examples |
+| :-- | :-- | :-- | :-- | :-- |
+| `GET` | `/` | `{letter combination}` | Give JSON response of all possible words with definitions. | [`asd`](https://wh.niweera.gq/asd) |
 
 ## Meta
 
