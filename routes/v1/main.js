@@ -41,7 +41,6 @@ router.get("/:letters", (req, res) => {
   }
 
   var anagramWords = generateAnagrams(letterArray, letterArray.length);
-  console.log(anagramWords);
 
   Promise.all(
     anagramWords.map(word =>
