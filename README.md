@@ -17,9 +17,7 @@ The WordHunter service will provide the following results.
 
 (The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
 
-## Endpoints will be available soon
-
-### WordHunter Main Endpoint
+## Endpoints
 
 Enter any combination of letters (No more than 7 letters at once) without the need of seperating them by a comma or a space.
 
