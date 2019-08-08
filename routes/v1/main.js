@@ -42,12 +42,13 @@ router.get("/:letters", (req, res) => {
   }
 
   var anagramWords = generateAnagrams(letterArray, letterArray.length);
-  console.log(anagramWords);
 
   Promise.all(
     anagramWords.map(word =>
       // fetch(`https://dict.niweera.gq/wh/${word}`).then(res => res.json())
-      fetch(`http://localhost:8080/${word}`).then(res => res.json())
+      fetch(`https://wordhound.niweera.gq/words/${word}`).then(res =>
+        res.json()
+      )
     )
   )
     .then(values => {
