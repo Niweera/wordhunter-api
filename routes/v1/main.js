@@ -43,19 +43,39 @@ router.get("/:letters", (req, res) => {
 
   var anagramWords = generateAnagrams(letterArray, letterArray.length);
 
-  Promise.all(
-    anagramWords.map(word =>
-      fetch(`https://wordhound.niweera.gq/words/find/${word}`).then(res =>
-        res.json()
+  if (process.env.NODE_ENV === "production") {
+    Promise.all(
+      anagramWords.map(word =>
+        fetch(`https://wordhound.niweera.gq/words/find/${word}`).then(res =>
+          res.json()
+        )
       )
     )
-  )
-    .then(values => {
-      res
-        .status(200)
-        .json(_.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word"));
-    })
-    .catch(error => res.status(404).json(error));
+      .then(values => {
+        res
+          .status(200)
+          .json(
+            _.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word")
+          );
+      })
+      .catch(error => res.status(404).json(error));
+  } else {
+    Promise.all(
+      anagramWords.map(word =>
+        fetch(`http://localhost:5050/words/find/${word}`).then(res =>
+          res.json()
+        )
+      )
+    )
+      .then(values => {
+        res
+          .status(200)
+          .json(
+            _.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word")
+          );
+      })
+      .catch(error => res.status(404).json(error));
+  }
 });
 
 // @route   GET /*
