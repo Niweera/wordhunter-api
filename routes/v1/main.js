@@ -45,8 +45,7 @@ router.get("/:letters", (req, res) => {
 
   Promise.all(
     anagramWords.map(word =>
-      // fetch(`https://dict.niweera.gq/wh/${word}`).then(res => res.json())
-      fetch(`https://wordhound.niweera.gq/words/${word}`).then(res =>
+      fetch(`https://wordhound.niweera.gq/words/find/${word}`).then(res =>
         res.json()
       )
     )
