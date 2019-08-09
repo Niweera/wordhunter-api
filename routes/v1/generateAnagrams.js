@@ -1,45 +1,42 @@
-const generateAnagrams = (word, length) => {
-  // Because of the recursive nature of this function
-  // a separate length value is required in order to
-  // compare with later so that we can know the difference
-  // between mini anagram and full ones for real-time
-  // logging. This value also allows you to generate smaller
-  // anagrams.
+const cheerio = require("cheerio");
+const request = require("request");
 
-  if (length) wordLength = length;
-  if (word.length < 2) {
-    return [word];
-  } else {
-    // By declaring all variables outside of the loop,
-    // we improve efficiency, avoiding the needless
-    // declarations each time.
+var url;
+var options = {};
 
-    var anagrams = [];
-    var before, focus, after;
-    var shortWord, subAnagrams, newEntry;
-    var i = 0;
+const generateAnagrams = (queriedWord, callback) => {
+  url = `https://new.wordsmith.org/anagram/anagram.cgi?anagram=${queriedWord}&language=english&t=500&d=&include=&exclude=&n=&m=&a=y&l=n&q=y&k=0&source=adv`;
+  url = encodeURI(url);
 
-    for (var i = 0; i < word.length; i++) {
-      before = word.slice(0, i);
-      focus = word[i];
-      after = word.slice(i + 1, word.length + 1);
-      shortWord = before + after;
-      subAnagrams = generateAnagrams(shortWord);
+  options = {
+    method: "GET",
+    url: url,
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0"
+    }
+  };
 
-      for (var j = 0; j < subAnagrams.length; j++) {
-        newEntry = focus + subAnagrams[j];
-        anagrams.push(newEntry);
-
-        // Now we use this to log the results in real time, in order
-        // to gets results quickly while allowing them to be processed
-        // at a speed that web browsers can handle.
-
-        //if (newEntry.length == wordLength) console.log(newEntry); // Console
-      }
+  request(options, function(err, response, body) {
+    if (err) {
+      return console.error(err);
     }
 
-    return anagrams;
-  }
+    const $ = cheerio.load(body);
+
+    var word = $("div.p402_premium")
+      .first()
+      .text();
+    var arr = word.match(/[0-9]+\.\s+[a-z]*/g);
+
+    arr.forEach(function(part, index) {
+      this[index] = part.replace(/[^A-Za-z]/g, "");
+    }, arr);
+
+    arr = arr.filter(v => v.length == queriedWord.length);
+
+    return callback(arr);
+  });
 };
 
 module.exports = generateAnagrams;
