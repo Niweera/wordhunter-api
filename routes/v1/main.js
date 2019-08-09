@@ -34,54 +34,49 @@ router.get("/:letters", (req, res) => {
     !letterArray.includes("e") &&
     !letterArray.includes("i") &&
     !letterArray.includes("o") &&
-    !letterArray.includes("u")
+    !letterArray.includes("u") &&
+    !letterArray.includes("y")
   ) {
-    res.status(404).json({
+    res.status(404).send({
       error: "You can't possibly create a word with the given letters."
     });
   }
 
   generateAnagrams(letterArray, function(response) {
     console.log(response);
-    if (response.length == 0) {
-      res.status(404).json({
-        error: "You can't possibly create a word with the given letters."
-      });
+    anagramWords = response;
+    if (process.env.NODE_ENV === "production") {
+      Promise.all(
+        anagramWords.map(word =>
+          fetch(`https://wordhound.niweera.gq/words/find/${word}`).then(res =>
+            res.json()
+          )
+        )
+      )
+        .then(values => {
+          res
+            .status(200)
+            .json(
+              _.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word")
+            );
+        })
+        .catch(error => res.status(404).json(error));
     } else {
-      anagramWords = response;
-      if (process.env.NODE_ENV === "production") {
-        Promise.all(
-          anagramWords.map(word =>
-            fetch(`https://wordhound.niweera.gq/words/find/${word}`).then(res =>
-              res.json()
-            )
+      Promise.all(
+        anagramWords.map(word =>
+          fetch(`http://localhost:5050/words/find/${word}`).then(res =>
+            res.json()
           )
         )
-          .then(values => {
-            res
-              .status(200)
-              .json(
-                _.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word")
-              );
-          })
-          .catch(error => res.status(404).json(error));
-      } else {
-        Promise.all(
-          anagramWords.map(word =>
-            fetch(`http://localhost:5050/words/find/${word}`).then(res =>
-              res.json()
-            )
-          )
-        )
-          .then(values => {
-            res
-              .status(200)
-              .json(
-                _.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word")
-              );
-          })
-          .catch(error => res.status(404).json(error));
-      }
+      )
+        .then(values => {
+          res
+            .status(200)
+            .json(
+              _.uniqBy(values.filter(v => !v.hasOwnProperty("error")), "word")
+            );
+        })
+        .catch(error => res.status(404).json(error));
     }
   });
 });

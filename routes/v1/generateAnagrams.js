@@ -29,11 +29,15 @@ const generateAnagrams = (queriedWord, callback) => {
       .text();
     var arr = word.match(/[0-9]+\.\s+[a-z]*/g);
 
-    arr.forEach(function(part, index) {
-      this[index] = part.replace(/[^A-Za-z]/g, "");
-    }, arr);
+    if (arr) {
+      arr.forEach(function(part, index) {
+        this[index] = part.replace(/[^A-Za-z]/g, "");
+      }, arr);
 
-    arr = arr.filter(v => v.length == queriedWord.length);
+      arr = arr.filter(v => v.length == queriedWord.length);
+    } else {
+      arr = [];
+    }
 
     return callback(arr);
   });
