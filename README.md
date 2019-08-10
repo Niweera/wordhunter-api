@@ -1,4 +1,7 @@
-# WordHunter-api v1.0
+# WordHunter-API v1.0
+
+## WordHunter-API is live on https://wh.niweera.gq
+
 > WordHunter lets you to find the words for the letters you have when you are playing Scrabble.
 
 The following is the basic architecture of the WordHunter application. (The web application will use the WordHunter-api to get the results according to the letters that the user has given.)
@@ -19,9 +22,9 @@ The WordHunter service will provide the following results.
 
 ## Endpoints
 
-Enter any combination of letters (No more than 7 letters at once) without the need of seperating them by a comma or a space.
+Enter any combination of letters without the need of seperating them by a comma or a space.
 
-Eg. `https://wh.niweera.gq/asd`, will return an array of all the possible words and their definitions that can be created using all the given letters. Please remember the maximum number of letters that can be given is 7 letters.
+Eg. `https://wh.niweera.gq/asd`, will return an array of all the possible words and their definitions that can be created using all the given letters.
 
 ```json
 [
