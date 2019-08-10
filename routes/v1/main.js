@@ -24,11 +24,7 @@ router.get("/", (req, res) => {
 router.get("/:letters", (req, res) => {
   const letters = req.params.letters;
   var letterArray = letters.replace(/[^A-Za-z]/g, "");
-  if (letterArray.length > 7) {
-    res.status(404).json({
-      error: "The maximum number of characters must be no more than 7 letters."
-    });
-  }
+
   if (
     !letterArray.includes("a") &&
     !letterArray.includes("e") &&
