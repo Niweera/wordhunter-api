@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![HitCount](http://hits.dwyl.io/Niweera/wordhunter-api.svg)](http://hits.dwyl.io/Niweera/wordhunter-api)
-[![Known Vulnerabilities](https://snyk.io//test/github/Niweera/niweeratvdb-api/badge.svg?targetFile=package.json)](https://snyk.io//test/github/Niweera/niweeratvdb-api?targetFile=package.json)
+[![Known Vulnerabilities](https://snyk.io//test/github/Niweera/wordhunter-api/badge.svg?targetFile=package.json)](https://snyk.io//test/github/Niweera/wordhunter-api?targetFile=package.json)
 ![GitHub issues](https://img.shields.io/github/issues/Niweera/wordhunter-api)
 ![Website](https://img.shields.io/website/https/wh.niweera.gq?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
 
