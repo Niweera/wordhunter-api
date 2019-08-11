@@ -3,6 +3,7 @@
 [![Known Vulnerabilities](https://snyk.io//test/github/Niweera/wordhunter-api/badge.svg?targetFile=package.json)](https://snyk.io//test/github/Niweera/wordhunter-api?targetFile=package.json)
 ![GitHub issues](https://img.shields.io/github/issues/Niweera/wordhunter-api)
 ![Website](https://img.shields.io/website/https/wh.niweera.gq?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
+[![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
 
 # WordHunter-API v1.0
 
@@ -19,10 +20,11 @@ The following is the basic architecture of the WordHunter application. (The web 
 
 ### Example use case
 
-User wants to find words which can be created from `a, o, n, t`
+User wants to find words which can be created from `a, s, d`
 
 The WordHunter service will provide the following results.
-1. nato - North Atlantic Treaty Organization.
+1. sad - Feeling or showing sorrow; unhappy.
+2. ads - An advertisement.
 
 (The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
 
@@ -35,8 +37,8 @@ Eg. `https://wh.niweera.gq/asd`, will return an array of all the possible words 
 ```json
 [
   {
-    "word": "asd",
-    "definition": "short for autistic spectrum disorder"
+    "word": "ads",
+    "definition": "An advertisement."
   },
   {
     "word": "sad",
