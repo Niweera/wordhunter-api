@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "lint": "node_modules/.bin/goodparts lib"
   },
   "author": "Nipuna Weerasekara",
   "license": "MIT",
@@ -28,6 +29,7 @@
     "validator": "^10.11.0"
   },
   "devDependencies": {
+    "goodparts": "^1.2.1",
     "nodemon": "^1.19.0"
   }
 }
