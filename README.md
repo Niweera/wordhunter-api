@@ -4,6 +4,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/Niweera/wordhunter-api)
 ![Website](https://img.shields.io/website/https/wh.niweera.gq?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
 [![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
+[![Build Status](https://travis-ci.com/Niweera/wordhunter-api.svg?branch=master)](https://travis-ci.com/Niweera/wordhunter-api)
 
 # WordHunter-API v1.0
 
@@ -13,9 +14,6 @@
 
 The following is the basic architecture of the WordHunter application. (The web application will use the WordHunter-API to get the results according to the letters that the user has given.)
 
-
-
-
 ![](w.png)
 
 ### Example use case
@@ -23,6 +21,7 @@ The following is the basic architecture of the WordHunter application. (The web 
 User wants to find words which can be created from `a, s, d`
 
 The WordHunter service will provide the following results.
+
 1. sad - Feeling or showing sorrow; unhappy.
 2. ads - An advertisement.
 
@@ -49,21 +48,21 @@ Eg. `https://wh.niweera.gq/asd`, will return an array of all the possible words 
 
 ### Paths
 
-| Location | Endpoint |
-| :-- | :-- |
-| Root path | `https://wh.niweera.gq/`|
+| Location  | Endpoint                 |
+| :-------- | :----------------------- |
+| Root path | `https://wh.niweera.gq/` |
 
 ### HTTP request and query methods
 
-| Method | Endpoint | Query | Description | Examples |
-| :-- | :-- | :-- | :-- | :-- |
-| `GET` | `/` | `{letter combination}` | Give JSON response of all possible words with definitions. | [`asd`](https://wh.niweera.gq/asd) |
+| Method | Endpoint | Query                  | Description                                                | Examples                           |
+| :----- | :------- | :--------------------- | :--------------------------------------------------------- | :--------------------------------- |
+| `GET`  | `/`      | `{letter combination}` | Give JSON response of all possible words with definitions. | [`asd`](https://wh.niweera.gq/asd) |
 
 ## Meta
 
 Nipuna Weerasekara – [@Niweera](https://twitter.com/Niweera) – w.nipuna@gmail.com
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See `LICENSE` for more information.
 
 [https://github.com/Niweera/wordhunter-api](https://github.com/Niweera/wordhunter-api)
 
@@ -82,6 +81,7 @@ This repo is a part of `WordHunter` project.
 5. Create a new Pull Request
 
 <!-- Markdown link & img dfn's -->
+
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/datadog-metrics
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
