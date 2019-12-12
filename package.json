@@ -7,7 +7,9 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "lint": "node_modules/.bin/goodparts lib",
-    "test": "mocha --timeout 1800000"
+    "test": "mocha --timeout 1800000",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Nipuna Weerasekara",
   "license": "MIT",
@@ -30,10 +32,12 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "serve-favicon": "^2.5.0",
-    "validator": "^10.11.0"
+    "validator": "^10.11.0",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "goodparts": "^1.2.1",
     "nodemon": "^1.19.0"
-  }
+  },
+  "snyk": true
 }
